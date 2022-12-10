@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>FrontEnd Store</title>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html">
+            <img class="header__logo" src="img/logo.png" alt="logotipo">
+        </a>
+    </header>
+
+    <nav class="navegacion">
+        <a class="navegacion__enlace" href="index.html">Tienda</a>
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1>React JS</h1>
+
+        <div class="camisa">
+            <img class="camisa__imagen" src="img/3.jpg" alt="imagen de camiseta">
+
+            <div class="camisa__contenido">
+                <p>
+                    Aliquam risus enim, iaculis sed elit nec, hendrerit pulvinar mi. Morbi euismod maximus neque, a rhoncus ex vehicula sit amet. 
+                    Curabitur elementum ac sapien eget tempor. Pellentesque at consectetur augue, nec congue justo.
+                </p>
+
+                <form class="formulario">
+                <select class="formulario__campo"> <!-- La opcion de seleccion del formulario-->
+                    <option disabled selected>--Seleccionar Talle--</option> <!--los atributos dicen que no puede ser seleccionado, pero que es el default que aparece primero-->
+                    <option>Small</option> 
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <input class="formulario__campo" type="number" placeholder="Cantidad" min="1"> <!-- hay muchos mas atributos-->
+                <input class="formulario__submit" type="submit" value="Agregar al carrito">
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p  class="footer__texto">Frontend Store - Todos los derechos reservados 2022</p>
+    </footer>
+    
+</body>
+</html>

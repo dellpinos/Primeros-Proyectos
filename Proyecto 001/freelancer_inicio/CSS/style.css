@@ -1,0 +1,260 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+}
+/* Globales */
+html {
+    font-size: 62.5%;
+    box-sizing: inherit; /* hack para Box Model*/
+    scroll-snap-type: y mandatory; /* y es el eje sobre el q se va a scrolear*/
+}
+/* Scroll snap */
+.servicios,
+.navegacion-principal, /* No todos los navegadores soportan scroll snap*/
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*, *:before, *:after { /* El asterisco es un selector universal a todo el elemento. El before y el after son pseudoelementos(no existen en el html, no pueden ser seleccionados), con la coma los agrego por si hay alguno en el codigo*/
+    box-sizing: inherit;
+}
+body {
+    font-size: 16px; /* 1 rem = 10px */
+    font-family: 'Lato', sans-serif;
+    background-image: linear-gradient(to top, #336495 0%, var(--blanco) 100%);
+
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto; 
+    /* Como solo hay dos valores, CSS entiende que el 0 es arriba y abajo y auto es izq y der:
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    */
+}
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+.boton:hover {
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+    
+}
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 7px rgba(0,0,0,0.54);
+    -moz-box-shadow: 0px 5px 15px 7px rgba(0,0,0,0.54);
+    box-shadow: 0px 5px 15px 7px rgba(0,0,0,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Tipografia*/
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h1,h2,h3 {
+    text-align: center;
+}
+
+/* Titulos*/
+.titulo span {
+    font-size: 5rem;    
+}
+/* Utilidades */
+.w-100 {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-100 {
+        width: auto;
+    }
+}
+.flex {
+    display: flex;
+}
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* Navegacion Principal */
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none; /*quita el subrayado*/
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+}
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);    
+}
+/* Hero */
+.hero   {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0 , 0, .7 ); /** creo la transparencia, con valores rgb para negro y el ultimo valor de rgba dando el valor a la transparencia**/
+    /**background: rgb( 0 0 0 / 70% );    Es lo mismo q la linea de arriba**/
+
+    display: flex; /* Alinear vertical y horizontalmente*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* */
+
+}
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem
+        /* grid-template-columns: 1fr 1fr 1fr  Son fracciones, 1 1/3 1/3 1/3 es igual a 33%*/
+        
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p { /* Estoy trabajando con el texto del parrafo*/
+    line-height: 1,5;
+    text-align: center;
+
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+}
+/* Contacto */
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* min va a utilizar el valor mas pequeño*/
+    margin: 0 auto; /* Estoy centrando el formulario*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset {
+    border: none;
+}
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;  /*mayusculas*/
+    font-weight: bold; /* negrita*/
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid; /*pongo un campo junto al otro, los primeros 2*/
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+}
+}
+.campo:nth-child(4),
+.campo:nth-child(3) {/* De los 4 campos con la misma clase escoge el orden, siguiendo el indice dentro del parentesis (2) es el segundo "campo"*/
+    grid-column: 1 / 3; /*uso developer tools en firefox para ver las columnas, tambien permite cambiar el orden del html desde el css*/
+
+}
+.campo {
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+}
+.campo label {
+    color: var(--blanco);
+    font-weight: bolt;
+    margin-bottom: .5rem;
+    display: block;
+}
+.campo textarea {
+    height: 15rem;
+}
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+.enviar .boton {
+    width: 50%;
+}
+.footer {
+    text-align: center;
+}

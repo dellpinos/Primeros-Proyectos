@@ -1,0 +1,268 @@
+:root {
+    --primario: #ffdb15;
+    --primariooscuro: #B3A93E;
+    --secundario: #5D50E6;
+    --secundarioOscuto: #221799;
+    --blanco: #fff;
+    --negro: #000;
+
+    --fuenteprincipal: font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+    *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/** Globales**/
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+p {
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--negro);
+    margin: 1rem;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    width: 100%;
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuenteprincipal);
+}
+h1 {
+    font-size: 3.4rem;
+    padding: 1rem;
+}
+h2 {
+    font-size: 2.8rem;
+    line-height: 4rem;
+}
+h3 {
+    font-size: 2rem;
+}
+
+/** Header **/
+.header {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+}
+.header__logo {
+    margin: 3rem 0;
+}
+/** Footer **/
+.footer {
+    background-color: var(--primariooscuro);
+    padding: 1rem 0;
+    margin-top: 10rem;
+}
+.footer__texto {
+    font-family: var(--fuenteprincipal);
+    text-align: center;
+    font-size: 2rem;
+}
+/** Navegaciion **/
+.navegacion {
+    background-color: var(--primariooscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    /* gap: 3rem; /* separa los dos enlaces*/
+}
+.navegacion__enlace {
+    font-family: var(--fuenteprincipal);
+    text-transform: uppercase;
+    color: var(--blanco);
+    font-size: 3rem;
+    margin-right: 2rem; /* como el gap, pero esta es la "forma antigua" safari no soporta gap */
+}
+.navegacion__enlace:last-of-type {
+    margin-right: 0; /* correccion de la separacion para centrar ambos enlaces, gap es mejor */
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+/** Grid **/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Acomodo dos productos por fila */
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Acomodo dos productos por fila */
+    }
+}
+
+/** Productos **/
+.producto {
+    background-color: var(--primariooscuro);
+    padding: 1rem;
+    transition: background-color .8s ease;
+}
+
+.producto:hover {
+    background-color: var(--secundario);
+}
+.producto__nombre {
+    font-size: 3rem;
+}
+.producto__precio {
+    font-size: 2.2rem;
+    color: var(--secundarioOscuto);
+    padding: 1rem;
+    font-weight: bold;
+    transition: color .8s ease;
+    transition: font-size .8s ease;
+}
+.producto__precio:hover {
+    color: var(--blanco);
+    font-size: 3rem;
+}
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuenteprincipal);
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+/** Graficos **/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / 3;
+}
+.grafico--camisas {
+    grid-row: 2 / 3;  /* lo acomodo siguiendo las coordenadas que veo en FireFox deb tools Grid*/
+    background-image: url(../img/grafico1.jpg);
+}
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+/** Nosotros **/
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+@media (min-width: 768px
+) {
+    .nosotros {
+
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.nosotros__contenido {
+margin-top: 3rem;
+}
+.nosotros__imagen {
+    grid-row: 1 / 2;
+}
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 /3;
+    }
+}
+/** Bloques **/
+.bloques {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bloque {
+    text-align: center;
+}
+.bloque__titulo {
+    margin: 0;
+}
+
+/** Paginas del producto **/
+
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        width: 100%;
+    }
+}
+
+
+
+@media (min-width: 480px) {
+        .formulario {
+            display: grid;
+            grid-template-columns: repeat(1, 2fr);
+            gap: 2rem;
+            padding: 1rem;
+        }                               /** ACA TENGO QUE PONER EL ORIGINAL**/
+
+}
+
+
+
+.formulario {
+    
+    gap: 2rem;
+    padding: 1rem;
+}
+.formulario__campo {
+    border-color: var(--primariooscuro);
+    border-width: 1rem;
+    border-style: solid;
+    background-color: var(--primario);
+    color: var(--negro);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    text-align: right;
+}
+.formulario__submit {
+    background-color: var(--secundarioOscuto);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuenteprincipal);
+    padding: 2rem;
+    color: var(--blanco);
+    transition: background-color 1s ease; /* es el tiempo de transicion de este color al del hover que sigue*/
+    transition: font-size .3s ease;
+    grid-column: 1 / 3;
+}
+.formulario__submit:hover {
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: var(--secundario);
+}
